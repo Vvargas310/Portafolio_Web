@@ -8,15 +8,47 @@ function showSection(section) {
     setTimeout(() => {
       content.style.display = 'none';
       document.getElementById('cover').style.display = 'flex';
-      document.querySelector('.enter-button').style.opacity = '1';
-      document.getElementById('floating-menu').style.display = 'none';
-      document.getElementById('floating-menu').style.opacity = '0';
+      document.querySelector('.enter-button').style.opacity = '0';
+      document.getElementById('floating-menu').style.display = 'flex';
+      document.getElementById('floating-menu').style.opacity = '1';
       
       // Reiniciar las animaciones de las flores
       document.querySelectorAll('.emoji').forEach(elem => {
         elem.style.animation = 'none';
         setTimeout(() => elem.style.animation = '', 10);
       });
+
+      // Aplicar animaciones a los elementos flotantes
+      const animations = [
+        'floatInTop 0.8s ease forwards',  // Sobre mí
+        'floatInBottom 0.8s ease forwards',  // Lenguajes 
+        'floatInTop 0.8s ease forwards',  // Proyectos 
+        'floatInBottom 0.8s ease forwards'  // Contacto 
+      ];
+
+      const aboutItem = document.querySelector('.item-about');
+      aboutItem.style.animation = animations[0] + ' 0.3s';
+      aboutItem.style.top = '10%';
+      aboutItem.style.left = '20%';
+      aboutItem.style.bottom = 'auto';
+      
+      const skillsItem = document.querySelector('.item-skills');
+      skillsItem.style.animation = animations[1] + ' 0.4s';
+      skillsItem.style.bottom = '20%';
+      skillsItem.style.left = '20%';
+      skillsItem.style.top = 'auto';
+      
+      const projectsItem = document.querySelector('.item-projects');
+      projectsItem.style.animation = animations[2] + ' 0.3s';
+      projectsItem.style.top = '10%';
+      projectsItem.style.right = '20%';
+      projectsItem.style.bottom = 'auto';
+      
+      const contactItem = document.querySelector('.item-contact');
+      contactItem.style.animation = animations[3] + ' 0.4s';
+      contactItem.style.bottom = '20%';
+      contactItem.style.right = '20%';
+      contactItem.style.top = 'auto';
     }, 500);
     return;
   }
@@ -32,10 +64,10 @@ function showSection(section) {
     
     // Definir diferentes animaciones para cada elemento
     const animations = [
-      'floatInTop 0.8s ease forwards',  // Sobre mí (arriba izquierda)
-      'floatInBottom 0.8s ease forwards',  // Lenguajes (abajo izquierda)
-      'floatInTop 0.8s ease forwards',  // Proyectos (arriba derecha)
-      'floatInBottom 0.8s ease forwards'  // Contacto (abajo derecha)
+      'floatInTop 0.8s ease forwards',  // Sobre mí 
+      'floatInBottom 0.8s ease forwards',  // Lenguajes 
+      'floatInTop 0.8s ease forwards',  // Proyectos
+      'floatInBottom 0.8s ease forwards'  // Contacto 
     ];
     
     setTimeout(() => {
@@ -70,7 +102,6 @@ function showSection(section) {
     return;
   }
   
-  // Para secciones de contenido (about, skills, projects, contact)
   // Ocultamos la pantalla principal y mostramos la sección de contenido
   document.getElementById('cover').style.display = 'none';
   
@@ -145,23 +176,47 @@ function showSection(section) {
     `;
   } else if (section === 'skills') {
     html = `
-      <h2 class="section-title">🛠 Tecnologías con las que trabajo</h2>
+      <h2 class="section-title">🛠️ Tecnologías con las que trabajo</h2>
       <div class="content-items">
-        <div class="skill-card pop-in">
-          <h3>Interfaz</h3>
-          <div class="skill-badge">HTML</div>
-          <div class="skill-badge">CSS</div>
-          <div class="skill-badge">JavaScript</div>
-          <div class="skill-badge">AJAX</div>
-          <div class="skill-badge">Bootstrap</div>
+        <div class="skill-card fade-in-up">
+          <div class="skill-header project-header"><span class="skill-icon">🎨</span> <span class="skill-title">Frontend</span></div>
+          <div class="skill-details project-details">
+            <div class="skill-badges">
+              <span class="skill-badge">HTML</span>
+              <span class="skill-badge">CSS</span>
+              <span class="skill-badge">JavaScript</span>
+              <span class="skill-badge">AJAX</span>
+              <span class="skill-badge">Bootstrap</span>
+            </div>
+          </div>
         </div>
-        <div class="skill-card pop-in" style="animation-delay: 0.3s">
-          <h3>Backend</h3>
-          <div class="skill-badge">PHP</div>
+        <div class="skill-card fade-in-up" style="animation-delay: 0.2s">
+          <div class="skill-header project-header"><span class="skill-icon">⚙️</span> <span class="skill-title">Backend</span></div>
+          <div class="skill-details project-details">
+            <div class="skill-badges">
+              <span class="skill-badge">PHP</span>
+              <span class="skill-badge">Java</span>
+            </div>
+          </div>
         </div>
-        <div class="skill-card pop-in" style="animation-delay: 0.6s">
-          <h3>Base de datos</h3>
-          <div class="skill-badge">MySQL</div>
+        <div class="skill-card fade-in-up" style="animation-delay: 0.4s">
+          <div class="skill-header project-header"><span class="skill-icon">🗄️</span> <span class="skill-title">Base de datos</span></div>
+          <div class="skill-details project-details">
+            <div class="skill-badges">
+              <span class="skill-badge">MySQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-card fade-in-up" style="animation-delay: 0.6s">
+          <div class="skill-header project-header"><span class="skill-icon">🛠️</span> <span class="skill-title">Herramientas</span></div>
+          <div class="skill-details project-details">
+            <div class="skill-badges">
+              <span class="skill-badge">GitHub</span>
+              <span class="skill-badge">Git</span>
+              <span class="skill-badge">VS Code</span>
+              <span class="skill-badge">Cursor</span>
+            </div>
+          </div>
         </div>
       </div>
     `;

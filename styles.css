@@ -88,7 +88,7 @@ body {
     letter-spacing: 3px;
     margin-top: 0;
     margin-bottom: 2rem;
-    color: #ffffff;
+    color: #080101;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
 
@@ -332,7 +332,9 @@ body {
   
   .content-items {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
   }
   
@@ -360,17 +362,63 @@ body {
   
   /* Elementos Skills */
   .skill-card {
-    background: linear-gradient(to bottom right, #f9f9f9, #f0f0f0);
+    background: white;
     border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     transition: all 0.3s;
+    margin-bottom: 1.5rem;
+    padding: 0;
   }
   
   .skill-card:hover {
     transform: scale(1.03);
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  
+  .skill-header.project-header {
+    background: linear-gradient(to right, #c6a4ff, #9d70d6);
+    color: white;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .skill-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .skill-title {
+    font-weight: 700;
+    font-size: 1.1em;
+  }
+  
+  .skill-details.project-details {
+    padding: 1.2rem 1rem;
+    background: white;
+    border-radius: 0 0 12px 12px;
+    text-align: center;
+  }
+  
+  .skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .skill-details {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 0 0 12px 12px;
+    text-align: center;
   }
   
   .skill-card h3 {
@@ -380,19 +428,29 @@ body {
   }
   
   .skill-badge {
-    display: inline-block;
-    background-color: #9d70d6;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    margin: 5px;
-    font-size: 0.9rem;
-    transition: all 0.3s;
+    display: inline-block !important;
+    background: #fff !important;
+    color: #7b46cc !important;
+    border: 1.5px solid #c6a4ff !important;
+    font-size: 1rem !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1000 !important;
+    margin: 8px !important;
+    padding: 6px 18px !important;
+    border-radius: 7px !important;
+    box-shadow: 0 1px 4px rgba(123, 70, 204, 0.06) !important;
+    transition: background 0.3s, color 0.3s, border 0.3s, transform 0.2s, box-shadow 0.3s;
+    font-weight: 500;
+    letter-spacing: 1px;
   }
   
   .skill-badge:hover {
-    transform: scale(1.1);
-    background-color: #7b46cc;
+    background: #f3eaff !important;
+    color: #4b2a7b !important;
+    border: 1.5px solid #9d70d6 !important;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(123, 70, 204, 0.13) !important;
   }
   
   /* Elementos Projects */
@@ -581,11 +639,11 @@ body {
   }
 
   .floating-icon {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 5px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     background-color: rgba(255, 255, 255, 0.2);
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -646,11 +704,11 @@ body {
   }
 
   .floating-icon {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 5px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     background-color: rgba(255, 255, 255, 0.2);
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -705,12 +763,12 @@ body {
   /* Responsive para los elementos flotantes */
   @media (max-width: 768px) {
     .floating-item {
-      width: 90px;
-      height: 90px;
+      width: 70px;
+      height: 70px;
     }
     
     .floating-icon {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
     }
     
     .item-about {
